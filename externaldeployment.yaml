@@ -20,4 +20,3 @@ spec:
           value: "mar-roidtc600-instructor"
         ports:
         - containerPort: 8082
-© 2021 GitHub, Inc.
