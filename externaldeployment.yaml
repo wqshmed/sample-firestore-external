@@ -1,22 +1,23 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: demo-api
+  name: demo-ui
 spec: 
   selector:
     matchLabels:
-      app: demo-api
-  replicas: 1 
+      app: demo-ui
+  replicas: 3 
   template:
     metadata:
       labels:
-        app: demo-api
+        app: demo-ui
     spec:
       containers:
-      - name: demo-api
-        image: drehnstrom/events-internal-del:v1.0
+      - name: demo-ui
+        image: drehnstrom/events-external-del:v1.0
         env: 
-        - name: GOOGLE_CLOUD_PROJECT
-          value: "mar-roidtc600-instructor"
+        - name: SERVER
+          value: "http://demo-service:8082"
         ports:
-        - containerPort: 8082
+        - containerPort: 8080
+
